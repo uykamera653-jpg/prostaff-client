@@ -1,34 +1,32 @@
 :root{
-  --green:#5DB80E; --deep:#0F172A; --muted:#64748B;
-  --tile-blue:#3B82F6; --tile-yellow:#F59E0B;
+  --green:#5DB80E; --muted:#64748B;
+  --blue:#3B82F6; --yellow:#F59E0B;
 }
 *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
 .appbar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e5e7eb;
   display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
 .brand{display:flex;align-items:center;gap:8px}
-.logo{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;
-  background:var(--green);color:#fff;font-weight:800}
+.logo{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:800}
 .title{font-weight:800;letter-spacing:.5px}
 .ghost{background:transparent;border:1px solid #e5e7eb;border-radius:10px;padding:8px 12px}
 
 main{padding:16px 12px 90px}
-h1{margin:.2rem 0 0.4rem 0;font-size:1.75rem}
-h2{margin:.2rem 0 .6rem 0}
+h1{margin:.2rem 0 .4rem;font-size:1.75rem}
+h2{margin:.2rem 0 .6rem}
 .muted{color:var(--muted)}
-.card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px;box-shadow:0 6px 16px #0000000d}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px;box-shadow:0 6px 16px #0001}
 .stack>*{margin:.35rem 0}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
 input,select,textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;font-size:16px}
 .primary{background:var(--green);color:#fff;border:none;border-radius:10px;padding:12px 14px;font-weight:700}
 .secondary{background:#f1f5f9;border:none;border-radius:10px;padding:12px 14px}
-
 .screen{display:none} .screen.show{display:block}
 
 .hero{background:linear-gradient(180deg,#0B1B3B 0%,#1F2E57 100%);color:#fff;border-radius:18px;padding:18px}
 .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-.tile{border-radius:16px;padding:14px;min-height:120px;color:#fff;box-shadow:0 10px 20px #00000020}
-.tile-yellow{background:linear-gradient(180deg,#F59E0B,#F19A00)}
-.tile-blue{background:linear-gradient(180deg,#3B82F6,#2C74EA)}
+.tile{border-radius:16px;padding:14px;min-height:120px;color:#fff;box-shadow:0 10px 20px #0003}
+.tile-yellow{background:linear-gradient(180deg,var(--yellow),#E68F00)}
+.tile-blue{background:linear-gradient(180deg,var(--blue),#2C74EA)}
 .tile-title{font-weight:800;font-size:1.1rem;margin-bottom:.25rem}
 .tile-text{opacity:.95;font-size:.95rem}
 .banner{margin-top:14px;background:#0B1B3B;border:1px dashed #fff;border-radius:14px;padding:12px;text-align:center}
