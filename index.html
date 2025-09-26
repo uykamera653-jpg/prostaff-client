@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prostaff — mijoz</title>
-  <meta name="theme-color" content="#5DB80E" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>PROSTAFF — mijoz</title>
+  <meta name="theme-color" content="#2a6bff"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- AppBar -->
   <header class="appbar">
-    <div class="brand"><span class="logo">O</span><span class="title">QSON ISH</span></div>
+    <div class="brand"><span class="dot">P</span><b>PROSTAFF</b></div>
     <button id="btnLogout" class="ghost" style="display:none">Chiqish</button>
   </header>
 
   <main>
-    <!-- 1) Kirish -->
+    <!-- WELCOME / AUTH -->
     <section id="screen-welcome" class="screen show">
       <h1>Xush kelibsiz!</h1>
-      <p class="muted">Ijrochi toping yoki o‘z xizmatlaringizni taklif qiling</p>
+      <p class="muted">Kunlik ishchi kerakmi yoki xizmat taklif qilasizmi?</p>
       <div class="card">
-        <div class="stack">
-          <input id="phoneInput" placeholder="+998 XX XXX XX XX" inputmode="tel" />
-          <button id="btnPhone" class="primary">Ro‘yxatdan o‘tish (SMS)</button>
-          <button id="btnGoogle" class="secondary">Google bilan kirish</button>
-        </div>
-        <small class="muted">
-          Davom etish orqali siz bizning <a href="#">foydalanish shartlarimiz</a> va
-          <a href="#">maxfiylik siyosatimiz</a>ga rozilik bildirasiz
-        </small>
+        <input id="phoneInput" placeholder="+998 XX XXX XX XX" inputmode="tel"/>
+        <button id="btnPhone" class="primary">Ro‘yxatdan o‘tish (SMS)</button>
+        <button id="btnGoogle" class="secondary">Google bilan kirish</button>
         <div id="recaptcha-container"></div>
+        <small class="muted">Davom etish orqali <a href="#">shartlar</a> va <a href="#">maxfiylik</a>ga rozilik bildirasiz.</small>
       </div>
     </section>
 
-    <!-- 2) Profil (ism-fam) -->
+    <!-- PROFILE FILL -->
     <section id="screen-profile" class="screen">
       <h2>Profil ma’lumotlari</h2>
       <div class="card">
         <div class="grid2">
-          <input id="firstName" placeholder="Ism" />
-          <input id="lastName" placeholder="Familiya" />
+          <input id="firstName" placeholder="Ism"/>
+          <input id="lastName" placeholder="Familiya"/>
         </div>
-        <input id="city" placeholder="Shahar (ixtiyoriy)" />
-        <button id="btnSaveProfile" class="primary">Saqlash va davom etish</button>
+        <div class="grid2">
+          <select id="gender"><option value="">Jins (ixtiyoriy)</option><option value="male">Erkak</option><option value="female">Ayol</option></select>
+          <input id="age" type="number" placeholder="Yosh (ixtiyoriy)"/>
+        </div>
+        <input id="city" placeholder="Shahar (ixtiyoriy)"/>
+        <button id="btnSaveProfile" class="primary">Saqlash</button>
       </div>
     </section>
 
-    <!-- 3) Asosiy oyna -->
+    <!-- HOME -->
     <section id="screen-home" class="screen">
       <div class="hero">
         <h1>Tezkor xizmat kerakmi?</h1>
@@ -54,52 +52,95 @@
         <div class="tiles">
           <div class="tile tile-yellow" id="tileDaily">
             <div class="tile-title">Kunlik ishchilar</div>
-            <div class="tile-text">Zudlik bilan ishchi kerakmi? Darhol buyurtma qoldiring.</div>
+            <div class="tile-text">Zudlik bilan ishchi kerakmi? Buyurtma qoldiring.</div>
           </div>
           <div class="tile tile-blue" id="tileFirms">
             <div class="tile-title">Firmalar</div>
-            <div class="tile-text">Xizmat ko‘rsatuvchi tashkilotlarni ko‘rib chiqing.</div>
+            <div class="tile-text">Tashkilotlardan xizmat oling (tez orada).</div>
           </div>
         </div>
         <div class="banner">⭐ BU YERDA SIZNING <b>REKLAMANGIZ</b> BO‘LISHI MUMKIN ⭐</div>
       </div>
     </section>
 
-    <!-- 4) Buyurtma yaratish -->
+    <!-- CATEGORIES -->
+    <section id="screen-categories" class="screen">
+      <h2>Kategoriya tanlang</h2>
+      <div id="catList" class="chips"></div>
+      <button class="ghost" id="btnBackHome">⬅️ Orqaga</button>
+    </section>
+
+    <!-- CREATE ORDER -->
     <section id="screen-create" class="screen">
-      <h2>Buyurtma yaratish</h2>
+      <h2>E’lon yaratish</h2>
       <div class="card">
-        <input id="oTitle" placeholder="Sarlavha (mas: Uy tozalash)" />
-        <select id="oType">
-          <option value="cleaning">Tozalash</option>
-          <option value="repair">Ta’mirlash</option>
-          <option value="moving">Ko‘chirish</option>
-          <option value="other">Boshqa</option>
-        </select>
-        <input id="oBudget" type="number" placeholder="Byudjet (so‘m)" />
-        <textarea id="oDesc" rows="3" placeholder="Tafsilotlar"></textarea>
-        <button id="btnCreate" class="primary">Yaratish</button>
+        <div class="muted" id="chosenCat"></div>
+        <input id="cName" placeholder="Ismingiz"/>
+        <input id="cPhone" placeholder="Telefon raqamingiz" inputmode="tel"/>
+        <textarea id="cDesc" rows="3" placeholder="Ish haqida ma’lumot"></textarea>
+        <div class="grid2">
+          <select id="cGender"><option value="">Ishchi jinsi farqi yo‘q</option><option value="male">Faqat erkak</option><option value="female">Faqat ayol</option></select>
+          <input id="cBudget" type="number" placeholder="Kunlik haq (so‘m)"/>
+        </div>
+        <div class="grid2">
+          <input id="cLocation" placeholder="Manzil / lokatsiya"/>
+          <select id="cPay"><option value="cash">Naqd</option><option value="card">Karta</option></select>
+        </div>
+        <div class="grid2">
+          <input id="cImage" type="file" accept="image/*"/>
+          <input id="cDate" type="date"/>
+        </div>
+        <button id="btnCreate" class="primary">E’lon berish</button>
       </div>
     </section>
 
-    <!-- 5) Buyurtmalar -->
-    <section id="screen-orders" class="screen">
-      <h2>Mening buyurtmalarim</h2>
-      <div id="ordersBox" class="list-empty muted">Hozircha buyurtma yo‘q.</div>
+    <!-- WAITING -->
+    <section id="screen-wait" class="screen">
+      <div class="card center">
+        <h2>E’lon berildi ✅</h2>
+        <p class="muted">Ishchilardan takliflar kelishini kutyapmiz…</p>
+        <button id="btnGoOffers" class="primary">Rozi bo‘lgan ishchilarni ko‘rish</button>
+      </div>
     </section>
 
-    <!-- 6) Profil ko‘rinishi -->
+    <!-- OFFERS -->
+    <section id="screen-offers" class="screen">
+      <h2>Rozi bo‘lgan ishchilar</h2>
+      <div id="offerList" class="list-empty muted">Hozircha taklif yo‘q…</div>
+      <button id="btnAssign" class="primary" style="display:none">Biriktirish</button>
+    </section>
+
+    <!-- CHAT -->
+    <section id="screen-chat" class="screen">
+      <div class="chat-head">
+        <button id="btnBackOffers" class="ghost">⬅️</button>
+        <div id="chatTitle">Chat</div>
+      </div>
+      <div id="chatBox" class="chat-box"></div>
+      <div class="chat-input">
+        <input id="chatMsg" placeholder="Xabar yozing…"/>
+        <button id="btnSend" class="primary">Yuborish</button>
+      </div>
+    </section>
+
+    <!-- ORDERS -->
+    <section id="screen-orders" class="screen">
+      <h2>Mening e’lonlarim</h2>
+      <div id="ordersBox" class="list-empty muted">Hozircha e’lon yo‘q.</div>
+    </section>
+
+    <!-- PROFILE VIEW -->
     <section id="screen-profile-view" class="screen">
       <h2>Profil</h2>
-      <div class="card" id="profileCard">Yuklanmoqda…</div>
+      <div id="profileCard" class="card">Yuklanmoqda…</div>
     </section>
   </main>
 
-  <!-- Pastki tabs -->
-  <nav class="tabs" id="tabs" style="display:none">
+  <!-- TABS -->
+  <nav id="tabs" class="tabs" style="display:none">
     <button data-tab="home" class="active">🏠<span>Bosh sahifa</span></button>
-    <button data-tab="create">📝<span>Yaratish</span></button>
     <button data-tab="orders">📄<span>Buyurtmalar</span></button>
+    <button data-tab="create">➕<span>Yaratish</span></button>
     <button data-tab="profile">👤<span>Profil</span></button>
   </nav>
 
@@ -107,7 +148,7 @@
 
   <!-- ENV -->
   <script src="env.js"></script>
-  <!-- App JS -->
+  <!-- APP -->
   <script type="module" src="app.js"></script>
 </body>
-          </html>
+            </html>
