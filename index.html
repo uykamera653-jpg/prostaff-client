@@ -1,1 +1,126 @@
-<!DOCTYPE html><html><body>placeholder</body></html>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prostaff — mijoz ilovasi</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#5DB80E" />
+</head>
+<body>
+  <!-- AppBar -->
+  <header class="appbar">
+    <div class="brand">
+      <span class="logo">O</span>
+      <span class="title">QSON ISH</span>
+    </div>
+    <button id="btnLogout" class="ghost" style="display:none">Chiqish</button>
+  </header>
+
+  <main>
+    <!-- 1) Kirish ekrani -->
+    <section id="screen-welcome" class="screen show">
+      <h1>Xush kelibsiz!</h1>
+      <p class="muted">Ijrochi toping yoki o‘z xizmatlaringizni taklif qiling</p>
+
+      <div class="card">
+        <div class="stack">
+          <input id="phoneInput" placeholder="+998 XX XXX XX XX" inputmode="tel" />
+          <button id="btnPhone" class="primary">Ro‘yxatdan o‘tish (SMS)</button>
+          <button id="btnGoogle" class="secondary">Google bilan kirish</button>
+        </div>
+        <small class="muted">
+          Davom etish orqali siz bizning <a href="#">foydalanish shartlarimiz</a> va
+          <a href="#">maxfiylik siyosatimizga</a> rozilik bildirasiz
+        </small>
+        <div id="recaptcha-container"></div>
+      </div>
+    </section>
+
+    <!-- 2) Ism-familya (profil yaratish) -->
+    <section id="screen-profile" class="screen">
+      <h2>Profil ma’lumotlari</h2>
+      <p class="muted">Hisob yaratish uchun ma’lumotlarni to‘ldiring.</p>
+      <div class="card">
+        <div class="grid2">
+          <input id="firstName" placeholder="Ism" />
+          <input id="lastName" placeholder="Familiya" />
+        </div>
+        <input id="city" placeholder="Shahar (ixtiyoriy)" />
+        <button id="btnSaveProfile" class="primary">Saqlash va davom etish</button>
+      </div>
+    </section>
+
+    <!-- 3) Asosiy oyna -->
+    <section id="screen-home" class="screen">
+      <div class="hero">
+        <h1>Tezkor xizmat kerakmi?</h1>
+        <p class="muted">
+          Tozalash, ta’mirlash, ko‘chirish va boshqalar — yaqin atrofdagi ijrochilar orqali.
+        </p>
+
+        <div class="tiles">
+          <div class="tile tile-yellow" id="tileDaily">
+            <div class="tile-title">Kunlik ishchilar</div>
+            <div class="tile-text">Zudlik bilan ishchi kerakmi? Darhol buyurtma qoldiring.</div>
+          </div>
+          <div class="tile tile-blue" id="tileFirms">
+            <div class="tile-title">Firmalar</div>
+            <div class="tile-text">Xizmat ko‘rsatuvchi tashkilotlarni ko‘rib chiqing.</div>
+          </div>
+        </div>
+
+        <div class="banner">
+          ⭐ BU YERDA SIZNING <b>REKLAMANGIZ</b> BO‘LISHI MUMKIN ⭐
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Buyurtma yaratish -->
+    <section id="screen-create" class="screen">
+      <h2>Buyurtma yaratish</h2>
+      <div class="card">
+        <input id="oTitle" placeholder="Sarlavha (masalan: Uy tozalash)" />
+        <select id="oType">
+          <option value="cleaning">Tozalash</option>
+          <option value="repair">Ta’mirlash</option>
+          <option value="moving">Ko‘chirish</option>
+          <option value="other">Boshqa</option>
+        </select>
+        <input id="oBudget" type="number" placeholder="Byudjet (so‘m)" />
+        <textarea id="oDesc" rows="3" placeholder="Tafsilotlar"></textarea>
+        <button id="btnCreate" class="primary">Yaratish</button>
+      </div>
+    </section>
+
+    <!-- 5) Buyurtmalar ro‘yxati -->
+    <section id="screen-orders" class="screen">
+      <h2>Mening buyurtmalarim</h2>
+      <div id="ordersBox" class="list-empty muted">Hozircha buyurtma yo‘q.</div>
+    </section>
+
+    <!-- 6) Profil -->
+    <section id="screen-profile-view" class="screen">
+      <h2>Profil</h2>
+      <div class="card" id="profileCard">Yuklanmoqda…</div>
+    </section>
+  </main>
+
+  <!-- Bottom navigation -->
+  <nav class="tabs" id="tabs" style="display:none">
+    <button data-tab="home" class="active">🏠<span>Bosh sahifa</span></button>
+    <button data-tab="create">📝<span>Yaratish</span></button>
+    <button data-tab="orders">📄<span>Buyurtmalar</span></button>
+    <button data-tab="profile">👤<span>Profil</span></button>
+  </nav>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- ENV (Secrets/Actions orqali generatsiya bo‘lsa shu fayl bo‘ladi) -->
+  <script src="env.js"></script>
+
+  <!-- Firebase + App JS -->
+  <script type="module" src="app.js"></script>
+</body>
+                                              </html>
