@@ -3,27 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prostaff — mijoz ilovasi</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Prostaff — mijoz</title>
   <meta name="theme-color" content="#5DB80E" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- AppBar -->
   <header class="appbar">
-    <div class="brand">
-      <span class="logo">O</span>
-      <span class="title">QSON ISH</span>
-    </div>
+    <div class="brand"><span class="logo">O</span><span class="title">QSON ISH</span></div>
     <button id="btnLogout" class="ghost" style="display:none">Chiqish</button>
   </header>
 
   <main>
-    <!-- 1) Kirish ekrani -->
+    <!-- 1) Kirish -->
     <section id="screen-welcome" class="screen show">
       <h1>Xush kelibsiz!</h1>
       <p class="muted">Ijrochi toping yoki o‘z xizmatlaringizni taklif qiling</p>
-
       <div class="card">
         <div class="stack">
           <input id="phoneInput" placeholder="+998 XX XXX XX XX" inputmode="tel" />
@@ -32,16 +27,15 @@
         </div>
         <small class="muted">
           Davom etish orqali siz bizning <a href="#">foydalanish shartlarimiz</a> va
-          <a href="#">maxfiylik siyosatimizga</a> rozilik bildirasiz
+          <a href="#">maxfiylik siyosatimiz</a>ga rozilik bildirasiz
         </small>
         <div id="recaptcha-container"></div>
       </div>
     </section>
 
-    <!-- 2) Ism-familya (profil yaratish) -->
+    <!-- 2) Profil (ism-fam) -->
     <section id="screen-profile" class="screen">
       <h2>Profil ma’lumotlari</h2>
-      <p class="muted">Hisob yaratish uchun ma’lumotlarni to‘ldiring.</p>
       <div class="card">
         <div class="grid2">
           <input id="firstName" placeholder="Ism" />
@@ -56,10 +50,7 @@
     <section id="screen-home" class="screen">
       <div class="hero">
         <h1>Tezkor xizmat kerakmi?</h1>
-        <p class="muted">
-          Tozalash, ta’mirlash, ko‘chirish va boshqalar — yaqin atrofdagi ijrochilar orqali.
-        </p>
-
+        <p class="muted">Tozalash, ta’mirlash, ko‘chirish va boshqalar — yaqin atrofdagi ijrochilar orqali.</p>
         <div class="tiles">
           <div class="tile tile-yellow" id="tileDaily">
             <div class="tile-title">Kunlik ishchilar</div>
@@ -70,10 +61,7 @@
             <div class="tile-text">Xizmat ko‘rsatuvchi tashkilotlarni ko‘rib chiqing.</div>
           </div>
         </div>
-
-        <div class="banner">
-          ⭐ BU YERDA SIZNING <b>REKLAMANGIZ</b> BO‘LISHI MUMKIN ⭐
-        </div>
+        <div class="banner">⭐ BU YERDA SIZNING <b>REKLAMANGIZ</b> BO‘LISHI MUMKIN ⭐</div>
       </div>
     </section>
 
@@ -81,7 +69,7 @@
     <section id="screen-create" class="screen">
       <h2>Buyurtma yaratish</h2>
       <div class="card">
-        <input id="oTitle" placeholder="Sarlavha (masalan: Uy tozalash)" />
+        <input id="oTitle" placeholder="Sarlavha (mas: Uy tozalash)" />
         <select id="oType">
           <option value="cleaning">Tozalash</option>
           <option value="repair">Ta’mirlash</option>
@@ -94,20 +82,20 @@
       </div>
     </section>
 
-    <!-- 5) Buyurtmalar ro‘yxati -->
+    <!-- 5) Buyurtmalar -->
     <section id="screen-orders" class="screen">
       <h2>Mening buyurtmalarim</h2>
       <div id="ordersBox" class="list-empty muted">Hozircha buyurtma yo‘q.</div>
     </section>
 
-    <!-- 6) Profil -->
+    <!-- 6) Profil ko‘rinishi -->
     <section id="screen-profile-view" class="screen">
       <h2>Profil</h2>
       <div class="card" id="profileCard">Yuklanmoqda…</div>
     </section>
   </main>
 
-  <!-- Bottom navigation -->
+  <!-- Pastki tabs -->
   <nav class="tabs" id="tabs" style="display:none">
     <button data-tab="home" class="active">🏠<span>Bosh sahifa</span></button>
     <button data-tab="create">📝<span>Yaratish</span></button>
@@ -117,10 +105,9 @@
 
   <div id="toast" class="toast"></div>
 
-  <!-- ENV (Secrets/Actions orqali generatsiya bo‘lsa shu fayl bo‘ladi) -->
+  <!-- ENV -->
   <script src="env.js"></script>
-
-  <!-- Firebase + App JS -->
+  <!-- App JS -->
   <script type="module" src="app.js"></script>
 </body>
-                                              </html>
+          </html>
